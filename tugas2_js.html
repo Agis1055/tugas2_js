@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tugas 2 Javascript</title>
+</head>
+<body>
+    <h3 align="center">DAFTAR PEGAWAI</h3>
+		<table align="center" cellpadding="10" width="40%">
+			<thead>
+				<tr bgcolor="#ff99ff">
+					<th>NO</th>
+					<th>NAMA</th>
+					<th>JABATAN</th>
+                    <th>AGAMA</th>
+                    <th>GAJI POKOK</th>
+                    <th>TUNJANGAN JABATAN</th>
+                    <th>TUNJANGAN KESEHATAN</th>
+                    <th>GAJI KOTOR</th>
+                    <th>ZAKAT PROFESI</th>
+                    <th>TAKE HOME PAY</th>
+				</tr>
+			</thead>
+			<tbody>
+                <script language="javascript">
+                    var no, warna, jabatan, agama, gapok, tunjab, tunkes, gakot;
+                    for(no = 1; no <= 100; no++){
+                        warna = (no % 2 == 0) ? 'aqua' :'yellow';   
+                     
+                        jabatan = (no >= 1 && no <= 25) ? 'Manager': (no >= 26 && no <= 50) ? 'Asisten Manager': (no >= 51 && no <= 75) ? 'Supervisor': 'Staff';
+
+                        agama = (no % 2 == 0) ? 'Non-Muslim' : 'Muslim';
+
+                        gapok = (jabatan == 'Manager') ? 15000000 : (jabatan == 'Asisten Manager') ? 10000000 :  (jabatan == 'Supervisor') ? 7000000 : 4000000;
+
+                        tunjab =  0.2 * gapok;
+
+                        tunkes = 0.1 * gapok;
+
+                        gakot = gapok + tunjab + tunkes;
+
+                        zakat = (agama == 'Muslim' && gakot >= 7000000) ? 0.025 * gakot : '0';
+
+                        thp = gakot - zakat;
+
+                        document.write
+                        (`<tr bgcolor="${warna}">
+                            <td>${no}</td>
+                            <td>Pegawai ${no}</td>
+                            <td>${jabatan}</td>
+                            <td>${agama}</td>
+                            <td>Gapok Rp ${gapok}</td>
+                            <td>Tunjangan Rp ${tunjab}</td>
+                            <td>Tunjangan Rp ${tunkes}</td>
+                            <td>Rp ${gakot}</td>
+                            <td>Rp ${zakat}</td>
+                            <td>Rp ${thp}</td>
+                        </tr>`);
+                    } 
+                  </script>
+			</tbody>
+		</table>
+</body>
+</html>
